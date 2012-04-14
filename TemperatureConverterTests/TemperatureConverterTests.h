@@ -12,8 +12,8 @@
 
 @interface TemperatureConverterTests : SenTestCase
 
-@property (nonatomic, strong) FakeTextContainer *celsiusTextField;
-@property (nonatomic, strong) FakeTextContainer *fahrenheitTextField;
+@property (nonatomic, strong) id celsiusTextField;
+@property (nonatomic, strong) id fahrenheitTextField;
 @property (nonatomic, strong) ViewController *converterController;
 
 @end

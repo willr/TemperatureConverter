@@ -22,6 +22,7 @@
 		AF7A5B291538BD5A000FBDDB /* FakeTextContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5B281538BD5A000FBDDB /* FakeTextContainer.m */; };
 		AF947A271538EB2000DB2360 /* ViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF947A261538EB2000DB2360 /* ViewControllerTests.m */; };
 		AF947A2B1539095E00DB2360 /* TemperatureConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF947A2A1539095E00DB2360 /* TemperatureConverterTests.m */; };
+		AF947A421539197800DB2360 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF947A411539197800DB2360 /* libOCMock.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +57,9 @@
 		AF7A5B281538BD5A000FBDDB /* FakeTextContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FakeTextContainer.m; path = ../TemperatureConverter/FakeTextContainer.m; sourceTree = "<group>"; };
 		AF947A251538EB2000DB2360 /* ViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTests.h; sourceTree = "<group>"; };
 		AF947A261538EB2000DB2360 /* ViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTests.m; sourceTree = "<group>"; };
-		AF947A291539095E00DB2360 /* TemperatureConverterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TemperatureConverterTests.h; sourceTree = "<group>"; };
+		AF947A291539095E00DB2360 /* TemperatureConverterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureConverterTests.h; sourceTree = "<group>"; };
 		AF947A2A1539095E00DB2360 /* TemperatureConverterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureConverterTests.m; sourceTree = "<group>"; };
+		AF947A411539197800DB2360 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = usr/lib/libOCMock.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF947A421539197800DB2360 /* libOCMock.a in Frameworks */,
 				AF7A5B111538B40F000FBDDB /* SenTestingKit.framework in Frameworks */,
 				AF7A5B121538B40F000FBDDB /* UIKit.framework in Frameworks */,
 				AF7A5B131538B40F000FBDDB /* Foundation.framework in Frameworks */,
@@ -87,6 +90,7 @@
 		AF7A5AE31538B40E000FBDDB = {
 			isa = PBXGroup;
 			children = (
+				AF947A411539197800DB2360 /* libOCMock.a */,
 				AF7A5AF81538B40E000FBDDB /* TemperatureConverter */,
 				AF7A5B161538B40F000FBDDB /* TemperatureConverterTests */,
 				AF7A5AF11538B40E000FBDDB /* Frameworks */,
@@ -408,7 +412,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TemperatureConverter/TemperatureConverter-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/usr/include\"/**";
 				INFOPLIST_FILE = "TemperatureConverterTests/TemperatureConverterTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/usr/lib\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -425,7 +439,17 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TemperatureConverter/TemperatureConverter-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/usr/include\"/**";
 				INFOPLIST_FILE = "TemperatureConverterTests/TemperatureConverterTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/usr/lib\"",
+				);
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"\"$(SRCROOT)/usr/lib/libOCMock.a\"",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
