@@ -14,10 +14,14 @@
 
 @implementation ViewController
 
+@synthesize celsiusTextField;
+@synthesize fahrenheitTextField;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (void)viewDidUnload
@@ -29,6 +33,26 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+#pragma mark - UITextFieldDelegate Protocol
+
+- (BOOL)textFieldShouldReturn: (UITextField *)txtField {
+    double celsius;
+    double fahrenheit;
+    
+    if (txtField == celsiusTextField) {
+        celsius = [[txtField text] doubleValue];
+        fahrenheit = celsius * (9.0/5.0) + 32.0;
+        fahrenheitTextField.text = [NSString stringWithFormat:@"%.0f", fahrenheit];
+    } else {
+        fahrenheit = [[txtField text] doubleValue];
+        celsius = (fahrenheit - 32) * 5.0/9.0;
+        celsiusTextField.text = [NSString stringWithFormat:@"%.0f", celsius];
+    }
+    
+    
+    return YES;
 }
 
 @end
